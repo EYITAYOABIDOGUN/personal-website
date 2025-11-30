@@ -1,0 +1,15 @@
+#abooutme{
+ text-color: black;
+ text-align: center;
+}
+#aboutme {
+    text-align: center;
+}
+
+.aboutme-section-description {
+    text-align: justify;
+}
+.text-block-container {
+    width: 65%;
+    margin: 0 auto;
+}

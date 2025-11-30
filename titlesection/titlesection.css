@@ -5,9 +5,9 @@
 }
 
 
-h1 {
+/* h1 {
     color: var(--titleSectionPrimaryColor);
-  }
+  } */
 
   .title-section-button {
     color: var(--titleSectionPrimaryColor);
@@ -37,5 +37,10 @@ h1 {
     margin-bottom: -5px;
   }
   .title-section-subtitle{
-    margin-bottom: -200px;
+    margin-bottom: 20px;
+  }
+  .misc-section{
+    width: 100vw;
+    padding: 100px 25px ;
+
   }
