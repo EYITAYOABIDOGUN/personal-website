@@ -33,4 +33,9 @@ h1 {
    padding-top: 200px;
    background-image:url(../images/pexels-campoilucas-1824570.jpg);
   }
-  
+  .title-section-header {
+    margin-bottom: -5px;
+  }
+  .title-section-subtitle{
+    margin-bottom: -200px;
+  }
