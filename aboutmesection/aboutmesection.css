@@ -13,3 +13,21 @@
     width: 65%;
     margin: 0 auto;
 }
+aboutme-icons {
+    font-size: 25px;
+    margin-top: 45px;
+}
+
+.aboutme-icon {
+    margin: 10px;
+    color: var(--titleSectionSecondaryColor);
+}
+
+.aboutme-icon:hover {
+    cursor: pointer;
+    color: var(--titleSectionTertiaryColor);
+}
+.aboutme-section-description {
+    text-align: justify;
+    margin-top: 40px;
+}

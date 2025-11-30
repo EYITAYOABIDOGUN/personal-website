@@ -1,8 +1,11 @@
 :root {
   --titleSectionPrimaryColor: white;
   --titleSectionSecondaryColor: rgb(204,165,188);
-
+  --titleSectionPrimaryColor: rgb(255, 255, 255);
+     --titleSectionSecondaryColor: rgb(224, 170, 160);
+     --titleSectionTertiaryColor: rgb(157, 172, 178);
 }
+
 
 
 /* h1 {
@@ -39,8 +42,12 @@
   .title-section-subtitle{
     margin-bottom: 20px;
   }
-  .misc-section{
+  /* .misc-section{
     width: 100vw;
     padding: 100px 25px ;
 
-  }
+  } */
+  .misc-section {
+    width: 100vw;
+    padding: 120px 25px;
+}
