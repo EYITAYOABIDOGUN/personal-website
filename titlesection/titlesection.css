@@ -1,15 +1,29 @@
+:root {
+  --titleSectionPrimaryColor: white;
+
+}
+
+
 h1 {
-    color: blue;
+    color: var(--titleSectionPrimaryColor);
   }
 
-  button:hover {
+  .title-section-button {
+    color: var(--titleSectionPrimaryColor);
+    border: solid var(--titleSectionPrimaryColor) 1px;
+    padding: 10px 20px ;
+    background-color: transparent;
+  }
+
+  .title-section-button:hover {
     background-color: red;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 10 px;
   }
 
   #title {
     /*border: solid white 2px;*/
+    color: var(--titleSectionPrimaryColor);
 
     width: 100%;
     text-align: center;
