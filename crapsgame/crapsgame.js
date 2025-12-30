@@ -24,18 +24,19 @@ let currentRounds = startingRounds
 let currentBet = bets.even
 let currentBetAmount = minimumBet
 
-function registerCrapsPlayer () {
-	 crapsUsername = document.getElementById(crapsUsernameInput).value
-// Username validation check
-	let firstCharIsDigitRegex = /^[0-9]|[^a-zA-Z0-9_]/g
-	if (crapsUsername.length < 5 || firstCharIsDigitRegex.test(crapsUsername)) {
-		alert("Username must be at least 5 characters long, alphanumeric and underscore only, no spaces, and cannot start with a number")
-	} else {
-		removeRegistrationPane()
+function registerCrapsPlayer() {
+  crapsUsername = document.getElementById(crapsUsernameInput).value
+  // Username validation check
+  let firstCharIsDigitRegex = /^[0-9]|[^a-zA-Z0-9_]/g
+  if (crapsUsername.length < 5 || firstCharIsDigitRegex.test(crapsUsername)) {
+    alert("Username must be at least 5 characters long, alphanumeric and underscore only, no spaces, and cannot start with a number")
+  } else {
+    removeRegistrationPane()
     showMainGameSection()
     setupFirstRound()
-	}
+  }
 }
+
 
 function removeRegistrationPane () {
 	document.getElementById(crapsRegistrationPane).style.display = "none"
@@ -62,7 +63,7 @@ function setMoney (money) {
 function setRounds (round) {
 	document.getElementById(crapsStatsRounds).innerHTML = round
 }
-}
+
 
 function betEven () {
 	chooseBet(bets.even)
@@ -78,7 +79,7 @@ function chooseBet (bet) {
 	const deselectBet = bet == bets.even ? bets.odd : bets.even
 	document.getElementById(deselectBet).style.backgroundColor = "transparent"
 }
-}
+
 
 function increaseBet () {
 	setBetAmount(Math.min(currentBetAmount + minimumBet, currentMoney))
