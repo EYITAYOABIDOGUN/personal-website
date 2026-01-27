@@ -90,14 +90,32 @@ function setupFirstRound() {
   betEven()
 	setBetAmount(minimumBet)
 }
+// function setupNextRound () {
+// 	hideElement(crapsRollDiceAnimationContainer)
+// 	hideElement(crapsRoundFinishGridContainer)
+// 	showElement(crapsRollDiceButton)
+// 	showElement(crapsBettingGridContainer)
+// 	canChangeBet = true
+// 	setBetAmount(minimumBet)
+// }
 function setupNextRound () {
-	hideElement(crapsRollDiceAnimationContainer)
-	hideElement(crapsRoundFinishGridContainer)
-	showElement(crapsRollDiceButton)
-	showElement(crapsBettingGridContainer)
-	canChangeBet = true
-	setBetAmount(minimumBet)
+  // Reset UI
+  hideElement(crapsRoundFinishGridContainer)
+  hideElement(crapsRollDiceAnimationContainer)
+
+  showElement(crapsRollDiceButton)
+  showElement(crapsBettingGridContainer)
+
+  // Reset round state
+  canChangeBet = true
+  currentBet = bets.even
+  setBetAmount(minimumBet)
+
+  // Reset bet button styles
+  document.getElementById(bets.even).style.backgroundColor = "red"
+  document.getElementById(bets.odd).style.backgroundColor = "transparent"
 }
+
 // User Score Setting
 
 function setMoney(money) {
@@ -144,8 +162,20 @@ function setBetAmount (betAmount) {
 		document.getElementById(crapsUserBetAmount).innerHTML = "$" + betAmount
   }
 }
+
+// changed rolldice function
+function rollDice({ numberOfDice, callback }) {
+  const result = []
+
+  for (let i = 0; i < numberOfDice; i++) {
+    result.push(Math.floor(Math.random() * 6) + 1)
+  }
+
+  callback(result)
+}
+
 // Roll Dice and Process Results
-  function rollDice() {
+  function onRollDiceClick() {
   canChangeBet = false
     formatDiceScale()
 
@@ -153,7 +183,7 @@ function setBetAmount (betAmount) {
     hideElement(crapsRollDiceButton)   
 	
 	const diceRollElement = document.getElementById(crapsRollDiceAnimationContainer)
-	rollADie({ element: diceRollElement, numberOfDice: numDiceToRoll, callback: delayedProcessDiceResult, delay: hideDiceDelayMs });
+	rollDice({ element: diceRollElement, numberOfDice: numDiceToRoll, callback: delayedProcessDiceResult, delay: hideDiceDelayMs });
 }
 window.addEventListener("resize", formatDiceScale);
 function formatDiceScale () {
@@ -168,30 +198,69 @@ function formatDiceScale () {
 function delayedProcessDiceResult (diceResult) {
 	setTimeout(function() { processDiceResult(diceResult) }, processDiceResultDelayMs)
 }
-function processDiceResult (diceResult) {
-	const sum = diceResult.reduce((partialSum, a) => partialSum + a, 0)
-	let diceSumResult = bets.even
-	if (sum % 2 === 1) {
-		diceSumResult = bets.odd
-	}
-  setRounds(currentRounds + 1)
-  let roundFinishMessage = ""
-	if (diceSumResult === currentBet) {
-		roundFinishMessage =("YOU WIN!")
-		setMoney(currentMoney + currentBetAmount)
-	} else {
-		// alert("YOU LOSE")
-		setMoney(currentMoney - currentBetAmount)
-	}
+// function processDiceResult (diceResult) {
+// 	const sum = diceResult.reduce((partialSum, a) => partialSum + a, 0)
+// 	let diceSumResult = bets.even
+// 	if (sum % 2 === 1) {
+// 		diceSumResult = bets.odd
+// 	}
+// 	setRounds(currentRounds + 1)
+// 	let roundFinishMessage = ""
+// 	if (diceSumResult === currentBet) {
+// 		roundFinishMessage = ("YOU WIN!")
+// 		setMoney(currentMoney + currentBetAmount)
+// 	} else {
+// 		// alert("YOU LOSE")
+// 		setMoney(currentMoney - currentBetAmount)
+// 	}
 
-if (currentMoney === 0) {
-  roundFinishMessage = "YOU'RE OUT!"
+// 	if (currentMoney === 0) {
+// 		roundFinishMessage = "YOU'RE OUT!"
+// 		showElement(crapsNextRoundButtonDisabled)
+// 		hideElement(crapsNextRoundButton)
+// 		hideElement(crapsBettingGridContainer)
+// 		showElement(crapsRoundFinishGridContainer)
+// 		document.getElementById(crapsRoundFinishMessage).innerHTML = roundFinishMessage
+// 	}
+// }
+// function reset 
+function processDiceResult (diceResult) {
+  const sum = diceResult.reduce((partialSum, a) => partialSum + a, 0)
+  let diceSumResult = bets.even
+
+  if (sum % 2 === 1) {
+    diceSumResult = bets.odd
+  }
+
+  setRounds(currentRounds + 1)
+
+  let roundFinishMessage = ""
+
+  if (diceSumResult === currentBet) {
+    roundFinishMessage = "YOU WIN!"
+    setMoney(currentMoney + currentBetAmount)
+  } else {
+    roundFinishMessage = "YOU LOSE!"
+    setMoney(currentMoney - currentBetAmount)
+  }
+
+  // 👉 ALWAYS SHOW RESULT SCREEN
+  hideElement(crapsRollDiceAnimationContainer)
+  hideElement(crapsBettingGridContainer)
+  showElement(crapsRoundFinishGridContainer)
+  document.getElementById(crapsRoundFinishMessage).innerHTML = roundFinishMessage
+
+  // 👉 GAME OVER CHECK
+  if (currentMoney <= 0) {
+    document.getElementById(crapsRoundFinishMessage).innerHTML = "YOU'RE OUT!"
     showElement(crapsNextRoundButtonDisabled)
-	  hideElement(crapsNextRoundButton)
-  	hideElement(crapsBettingGridContainer)
-	  showElement(crapsRoundFinishGridContainer)
-document.getElementById(crapsRoundFinishMessage).innerHTML = roundFinishMessage
+    hideElement(crapsNextRoundButton)
+  } else {
+    showElement(crapsNextRoundButton)
+    hideElement(crapsNextRoundButtonDisabled)
+  }
 }
+
   // Exit Game
 function exitGame () {
 	alert("After playing" + currentRounds + " rounds, you leave with " + currentMoney + "$")
