@@ -10,7 +10,7 @@
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <!-- <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Playwrite+NZ+Guides&display=swap" rel="stylesheet"> -->
   </head>
-  <body>
+  <body onload="getNewRandomQuote()">
     <div class="main-section" id="title">
       <h1 class="title-section-header">Eyitayo</h1>
       <p class="title-section-subtitle">This is where dreams come true</p>
@@ -116,6 +116,13 @@
             </div>
         </div>
     </div>
+    <div class="main-section" id="random-quote-generator">
+        <div>
+            <div>Quote: <div id="random-quote-text"></div></div>
+            <div>Author: <div id="random-quote-author"></div></div>
+            <div onclick="getNewRandomQuote()">New Quote</div>
+        </div>
+    </div>
 </body>
 </html>
 
@@ -157,7 +164,9 @@ html, body {
 </style>
 
 <script src="./crapsgame/crapsgame.js"></script>
+<script src="./randomQuoteGenerator/randomQuoteGenerator.js"></script>
 <script type="text/javascript" src="https://unpkg.com/roll-a-die@2.0.1/dist/roll-a-die.js"></script>
+
 <script>
 
 function makeDreamComeTrue () {
