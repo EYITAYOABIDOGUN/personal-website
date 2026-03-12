@@ -1,0 +1,30 @@
+# dependencies
+/node_modules
+/personal-webiste/node_modules
+
+# build output
+/personal-webiste/dist
+/personal-webiste/build
+
+# Vite cache
+/personal-webiste/.vite
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# environment variables
+.env
+.env.local
+.env.*.local
+
+# JetBrains
+.idea/
+
+# VSCode
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db

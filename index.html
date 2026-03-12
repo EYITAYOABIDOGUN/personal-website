@@ -1,13 +1,12 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <!-- all of the project assets live inside the `src` folder when the Vite dev
-         server is running, so use absolute paths beginning with a slash -->
-    <link rel="stylesheet" href="/src/titlesection/titlesection.css">
-    <link rel="stylesheet" href="/src/aboutmesection/aboutmesection.css">
-    <link rel="stylesheet" href="/src/crapsgame/crapsgame.css">
-    <link rel="stylesheet" href="/src/crapsgame/utils.css">
-    <link rel="stylesheet" href="/src/randomQuoteGenerator/randomQuoteGenerator.css">
+    <!-- all of the project assets live inside the `personal-webiste` folder, so paths
+         need to include that prefix when this index.html is served from the workspace root -->
+    <link rel="stylesheet" href="./personal-webiste/src/titlesection/titlesection.css">
+    <link rel="stylesheet" href="./personal-webiste/src/aboutmesection/aboutmesection.css">
+    <link rel="stylesheet" href="./personal-webiste/src/crapsgame/crapsgame.css">
+    <link rel="stylesheet" href="./personal-webiste/src/crapsgame/utils.css">
+    <link rel="stylesheet" href="./personal-webiste/src/randomQuoteGenerator/randomQuoteGenerator.css">
     <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia"> -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -46,7 +45,7 @@
     </a>
 </div>
 <div class="aboutme-download-link">
-    <a href="/src/aboutmesection/eyitayo_CV.pdf" download target="_blank">
+    <a href="./personal-webiste/src/aboutmesection/eyitayo_CV.pdf" download target="_blank">
         Download My CV
     </a>
     <!-- make sure the PDF is actually placed at this location; it wasn’t found in the workspace -->
@@ -171,15 +170,15 @@ html, body {
 
 </style>
 
-<script src="/src/crapsgame/crapsgame.js"></script>
+<script src="./personal-webiste/src/crapsgame/crapsgame.js"></script>
 <!-- corrected typo in path and added leading folder prefix -->
-<script src="/src/randomQuoteGenerator/randomQuoteGenerator.js"></script>
+<script src="./personal-webiste/src/randomQuoteGenerator/randomQuoteGenerator.js"></script>
 <!-- stock dashboard is not yet in use; leave it commented out -->
-<!-- <script src="/src/stockAnalysisDashboard/stockAnalysisDashboard.js"></script> -->
+<!-- <script src="./personal-webiste/src/stockAnalysisDashboard/stockAnalysisDashboard.js"></script> -->
 <script type="text/javascript" src="https://unpkg.com/roll-a-die@2.0.1/dist/roll-a-die.js"></script>
 <!-- the TypeScript entrypoint (`main.tsx`) doesn’t exist in this static page, so remove it
      or rebuild the React/Vite app if you meant to load it -->
-<!-- <script type="module" src="/src/main.tsx"></script> -->
+<!-- <script type="module" src="./personal-webiste/src/main.tsx"></script> -->
 
 <script>
 

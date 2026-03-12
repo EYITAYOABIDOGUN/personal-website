@@ -1,0 +1,111 @@
+<!-- this file mirrors the workspace-root index.html but adjusted for Vite
+     (paths are relative to the project root when served by the dev server) -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Vite will still serve static assets from /src, so use absolute paths -->
+    <link rel="stylesheet" href="/src/titlesection/titlesection.css">
+    <link rel="stylesheet" href="/src/aboutmesection/aboutmesection.css">
+    <link rel="stylesheet" href="/src/crapsgame/crapsgame.css">
+    <link rel="stylesheet" href="/src/crapsgame/utils.css">
+    <link rel="stylesheet" href="/src/randomQuoteGenerator/randomQuoteGenerator.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  </head>
+  <body onload="getNewRandomQuote()">
+    <div class="main-section" id="title">
+      <h1 class="title-section-header">Eyitayo</h1>
+      <p class="title-section-subtitle">This is where dreams come true</p>
+      <button class="title-section-button" onclick="makeDreamComeTrue()">Make dream come true</button>
+    </div>
+    <div class="misc-section" id="aboutme">
+      <div class="text-block-container">
+        <h1>About Me</h1>
+        <p class="aboutme-section-description">
+             I am a biochemistry graduate now turned full-time Software Engineer at Bloomberg LP.
+             Throughout my life journey, I realized the true power that software programming and
+             computer engineering skills can give to you. So I created an online course aimed at
+             developing the ability to solve any problem in any domain, with software. With the right
+             guidance and direction, we all have the capacity to grow into the best version of
+             ourselves, live a life of genuine purpose, and impact the people we love. Stay tuned
+             to see the apps I will build below!
+        </p>
+        <div class="aboutme-icons">
+          <a href="https://www.linkedin.com/in/john-nnamchi-03797847/" target="_blank">
+            <i class="aboutme-icon fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://www.instagram.com/johnnnamchi/" target="_blank">
+            <i class="aboutme-icon fab fa-instagram"></i>
+          </a>
+          <a href="https://www.facebook.com/john.nnamchi/" target="_blank">
+            <i class="aboutme-icon fab fa-facebook-square"></i>
+          </a>
+          <a href="mailto:john.nnamchi@simvo.io">
+            <i class="aboutme-icon far fa-envelope"></i>
+          </a>
+        </div>
+        <div class="aboutme-download-link">
+          <a href="/src/aboutmesection/eyitayo_CV.pdf" download target="_blank">
+            Download My CV
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- rest of the body remains unchanged -->
+    <div class="main-section" id="craps-game">
+      <!-- ... keep same outer markup ... -->
+    </div>
+    <div class="main-section" id="random-quote-generator">
+      <div>
+        <div id="random-quote-title">RANDOM QUOTE GENERATOR</div>
+        <div id="random-quote-text"></div>
+        <div id="random-quote-author"></div>
+        <div id="new-random-quote" onclick="getNewRandomQuote()">New Quote</div>
+      </div>
+    </div>
+    <div class="main-section" id="stock-analysis-dashboard">
+      <div id="root"></div>
+    </div>
+
+    <style>
+      /* same inline styles … */
+      * {
+        box-sizing: border-box;
+      }
+      html, body {
+        margin: 0px;
+        padding: 0px;
+      }
+      .main-section {
+        width: 100vw;
+        height: 100vh;
+        background-size: cover;
+        padding: 25px;
+      }
+      .misc-section {
+        width: 100vw;
+        padding: 120px 25px;
+      }
+      .text-block-container {
+        width: 65%;
+        margin: 0 auto;
+      }
+      @media screen and (max-width: 500px) {
+        .text-block-container {
+          width: 100%;
+        }
+      }
+    </style>
+
+    <script src="/src/crapsgame/crapsgame.js"></script>
+    <script src="/src/randomQuoteGenerator/randomQuoteGenerator.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/roll-a-die@2.0.1/dist/roll-a-die.js"></script>
+    <script>
+      function makeDreamComeTrue () {
+        document.body.style.background = 'url("https://media.giphy.com/media/HhTXt43pk1I1W/200.gif")'
+        document.getElementById("title").style.visibility = "hidden"
+      }
+    </script>
+  </body>
+</html>
